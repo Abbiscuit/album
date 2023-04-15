@@ -6,10 +6,5 @@ type Props = {
 };
 
 export default function AlbumSection({ images }: Props) {
-  return (
-    <section>
-      <h2 className="text-4xl font-bold mb-4">Best Album</h2>
-      <AlbumList images={images} />
-    </section>
-  );
+  return <AlbumList images={images} />;
 }

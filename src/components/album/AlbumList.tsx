@@ -1,4 +1,5 @@
 import { Album } from '@/pages';
+import Image from 'next/image';
 
 type Props = {
   images: Album[];
@@ -9,8 +10,13 @@ export default function AlbumList({ images }: Props) {
     <ul className="grid grid-cols-5 gap-4">
       {images.map(item => {
         return (
-          <li className="aspect-[9/16]" key={item.id}>
-            <img className="h-full object-cover" src={item.image} />
+          <li className="aspect-[9/16] relative" key={item.id}>
+            <Image
+              alt=""
+              className="h-full w-full bg-neutral-500 object-cover"
+              src={item.image}
+              fill
+            />
           </li>
         );
       })}
