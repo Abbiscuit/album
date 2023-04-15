@@ -1,13 +1,11 @@
-import AlbumSection from '@/components/album/AlbumSection';
 import AlbumSectionSeklton from '@/components/album/AlbumSectionSkelton';
 import { useEffect, useState } from 'react';
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 // デフォルトのテーマ
-import '@splidejs/react-splide/css';
 import AlbumList from '@/components/album/AlbumList';
 import AlbumTopCarousel from '@/components/album/AlbumTopCarousel';
 import AlbumTopCarouselSkelton from '@/components/album/AlbumTopCarouselSkelton';
 import SectionLayout from '@/components/common/SectionLayout';
+import '@splidejs/react-splide/css';
 
 const imageData = [
   { id: 1, image: 'https://picsum.photos/800/450?random=1' },
@@ -32,8 +30,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // setLoading(true);
-
     setTimeout(() => {
       setImages(imageData);
       setLoading(false);
