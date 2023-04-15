@@ -6,6 +6,8 @@ import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import AlbumList from '@/components/album/AlbumList';
 import AlbumTopCarousel from '@/components/album/AlbumTopCarousel';
+import AlbumTopCarouselSkelton from '@/components/album/AlbumTopCarouselSkelton';
+import SectionLayout from '@/components/common/SectionLayout';
 
 const imageData = [
   { id: 1, image: 'https://picsum.photos/800/450?random=1' },
@@ -41,26 +43,15 @@ export default function Home() {
   return (
     <main>
       <div className="max-w-6xl mx-auto">
-        <section className="py-16">
-          <h2 className="text-4xl font-bold mb-4">Best Online Shop</h2>
-          {loading && (
-            <div className="aspect-video">
-              <div className="w-full h-full bg-neutral-500 animate-pulse rounded"></div>
-            </div>
-          )}
+        <SectionLayout title="Best Online Shop">
+          {loading && <AlbumTopCarouselSkelton />}
           {images.length > 0 && <AlbumTopCarousel images={images} />}
-        </section>
+        </SectionLayout>
 
-        <section className="py-16">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold mb-4">Recommended for you</h2>
-            <a className="text-emerald-400 text-sm font-semibold" href="#">
-              More
-            </a>
-          </div>
+        <SectionLayout title="Recommended for you" link="#" linkLabel="More">
           {loading && <AlbumSectionSeklton />}
           {images.length > 0 && <AlbumList images={images} />}
-        </section>
+        </SectionLayout>
       </div>
     </main>
   );
