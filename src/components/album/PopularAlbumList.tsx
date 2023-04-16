@@ -6,26 +6,25 @@ type Props = {
   images: Album[];
 };
 
-export default function AlbumTopCarousel({ images }: Props) {
+export default function PopularAlbumList({ images }: Props) {
   return (
     <Splide
       hasTrack={false}
       options={{
-        interval: 2500,
-        autoplay: true,
-        pauseOnHover: true,
-        type: 'loop',
+        type: 'slide',
+        perPage: 3,
+        perMove: 1,
+        padding: '4rem',
       }}
       aria-label="お気に入りの写真"
     >
       <SplideTrack>
         {images.map(item => {
           return (
-            <SplideSlide
-              className="relative aspect-video rounded overflow-hidden"
-              key={item.image}
-            >
-              <Image className="object-cover" src={item.image} alt="" fill />
+            <SplideSlide className="p-4 max-w-[150px]" key={item.image}>
+              <div className="aspect-[9/16] relative rounded overflow-hidden">
+                <Image className="object-cover" src={item.image} alt="" fill />
+              </div>
             </SplideSlide>
           );
         })}

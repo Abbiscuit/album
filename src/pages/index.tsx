@@ -6,6 +6,8 @@ import AlbumTopCarousel from '@/components/album/AlbumTopCarousel';
 import AlbumTopCarouselSkelton from '@/components/album/AlbumTopCarouselSkelton';
 import SectionLayout from '@/components/common/SectionLayout';
 import '@splidejs/react-splide/css';
+import PopularAlbumList from '@/components/album/PopularAlbumList';
+import PopularAlbumListSkelton from '@/components/album/PopularAlbumListSkelton';
 
 const imageData = [
   { id: 1, image: 'https://picsum.photos/800/450?random=1' },
@@ -33,7 +35,7 @@ export default function Home() {
     setTimeout(() => {
       setImages(imageData);
       setLoading(false);
-    }, 3000);
+    }, 1000);
   }, []);
 
   return (
@@ -42,6 +44,11 @@ export default function Home() {
         <SectionLayout title="Best Online Shop">
           {loading && <AlbumTopCarouselSkelton />}
           {images.length > 0 && <AlbumTopCarousel images={images} />}
+        </SectionLayout>
+
+        <SectionLayout title="Popular">
+          {loading && <PopularAlbumListSkelton />}
+          {images.length > 0 && <PopularAlbumList images={images} />}
         </SectionLayout>
 
         <SectionLayout title="Recommended for you" link="#" linkLabel="More">
